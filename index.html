@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수상한 종말에 관한 시선</title>
+  <style>
+    @font-face {
+      font-family: 'Pretendard-Regular';
+      src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('index.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      font-family: 'Pretendard-Regular', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .input-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10vh;
+    }
+
+    input[type="text"] {
+      border: none;
+      border-bottom: 2px solid #f26bce;
+      background: transparent;
+      font-size: 24px;
+      padding: 5px 10px;
+      outline: none;
+      color: white;
+      font-family: 'Pretendard-Regular', sans-serif;
+      width: 170px;
+      text-align: center;
+    }
+
+    ::placeholder {
+      color: #f26bce;
+      opacity: 0.7;
+      font-weight: 900; /* ✅ placeholder 글씨 두껍게! */
+    }
+
+    .button {
+      width: 40px;
+      height: 20px;
+      border-radius: 0;
+      background-color: #f26bce94;
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: 'Pretendard-Regular', sans-serif;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #d155aa;
+    }
+
+    @media (max-width: 600px) {
+      input[type="text"] {
+        font-size: 16px;
+        padding: 4px 6px;
+        width: 160px;
+      }
+
+      .button {
+        width: 40px;
+        height: 26px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="input-line">
+    <input type="text" id="pageInput" placeholder="Do I have a choice?">
+    <button class="button" onclick="goToPage()">no</button>
+  </div>
+
+  <script>
+    function goToPage() {
+      const input = document.getElementById('pageInput').value.trim().toLowerCase();
+      if (input === 'notice') {
+        window.location.href = 'notice.html';
+      } else if (input == 'world'){
+        window.location.href = 'world.html';
+      } else {
+        alert('올바른 페이지 이름을 입력해주세요.');
+      }
+    }
+  </script>
+</body>
+</html>
