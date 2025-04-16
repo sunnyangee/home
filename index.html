@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>수상한 종말에 관한 시선</title>
 
   <!-- Google Fonts -->
@@ -24,47 +24,33 @@
       background-color: black;
       width: 100%;
       height: 100%;
-      overflow: hidden;
       font-family: 'Pretendard-Regular', sans-serif;
     }
 
-    /* 배경 이미지와 입력창을 감싸는 래퍼 */
-    .bg-wrap {
-      position: relative;
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .wrapper {
       width: 100%;
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+      align-items: flex-end;
 
-    /* 배경 이미지 - 전체 보여주되 잘리지 않도록 contain */
-    .bg-img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      max-width: 105%;
-      max-height: 110%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      z-index: 0;
-    }
-
-    /* 입력창이 배경 이미지 위에 올라오도록 z-index 조정 */
-    .overlay {
-      position: absolute;
-      bottom: 10vh;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      z-index: 1;
+      background-image: url('index.png'); /* ✅ 배경 이미지 여기! */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .input-line {
       display: flex;
       align-items: center;
       gap: 10px;
+      margin-bottom: 10vh;
     }
 
     input[type="text"] {
@@ -76,7 +62,7 @@
       outline: none;
       color: white;
       font-family: 'Oswald', 'Bebas Neue', 'Special Gothic Condensed One', sans-serif;
-      width: 180px;
+      width: 170px;
       text-align: center;
     }
 
@@ -84,12 +70,12 @@
       color: #f26bce;
       opacity: 0.7;
       font-weight: 400;
-      font-family: 'Oswald', 'Bebas Neue', 'Special Gothic Condensed One', sans-serif;
     }
 
     .button {
       width: 40px;
-      height: 26px;
+      height: 20px;
+      border-radius: 0;
       background-color: #f26bce94;
       color: white;
       font-size: 14px;
@@ -107,11 +93,20 @@
       background-color: #d155aa;
     }
 
-    /* 모바일 대응 */
-    @media (max-width: 100%) {
+    /* ✅ PC: 가운데 고정 + 양쪽 검은 여백 */
+    @media (min-width: 768px) {
+      .wrapper {
+        max-width: 375px; /* 모바일 사이즈 기준으로 고정 */
+        margin: 0 auto;
+      }
+    }
+
+    /* ✅ 모바일: 현재와 동일 유지 */
+    @media (max-width: 767px) {
       input[type="text"] {
         font-size: 16px;
-        width: 140px;
+        padding: 4px 6px;
+        width: 160px;
       }
 
       .button {
@@ -123,16 +118,10 @@
   </style>
 </head>
 <body>
-  <div class="bg-wrap">
-    <!-- 배경 이미지 (index.png가 프로젝트 폴더에 있어야 함) -->
-    <img src="index.png" alt="배경 이미지" class="bg-img">
-
-    <!-- 입력창 -->
-    <div class="overlay">
-      <div class="input-line">
-        <input type="text" id="pageInput" placeholder="Do I have a choice?">
-        <button class="button" onclick="goToPage()">NO</button>
-      </div>
+  <div class="wrapper">
+    <div class="input-line">
+      <input type="text" id="pageInput" placeholder="Do I have a choice?" />
+      <button class="button" onclick="goToPage()">NO</button>
     </div>
   </div>
 
