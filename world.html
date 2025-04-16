@@ -26,6 +26,7 @@
       height: 100%;
       background-color: black;
       font-family: 'Pretendard', sans-serif;
+      overflow: hidden; /* ✅ 배경 스크롤 차단 */
     }
 
     body {
@@ -50,13 +51,14 @@
     .box {
       background-color: rgba(255, 255, 255, 1);
       padding: 40px 60px;
-      padding-top: 100px;
+      padding-top: 300px;
       border-radius: 0;
       max-width: 80%;
-      max-height: 90vh;
+      max-height: 80vh;
       overflow-y: auto;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       text-align: justify;
+      -webkit-overflow-scrolling: touch;
     }
 
     .box h1 {
@@ -74,13 +76,12 @@
       text-decoration: underline;
     }
 
-    /* 모바일에서 현재 비율 유지 */
     @media (max-width: 767px) {
       .box {
         width: 78%;
         padding: 40px 30px;
         max-width: none;
-        max-height: 85vh;
+        max-height: 80vh;
         box-shadow: none;
         border-radius: 0;
       }
@@ -90,7 +91,6 @@
       }
     }
 
-    /* PC에서만 가운데 고정 */
     @media (min-width: 768px) {
       .wrapper {
         max-width: 470px;
