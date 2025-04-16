@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>World</title>
+
   <style>
     @font-face {
       font-family: 'Pretendard';
@@ -12,37 +13,59 @@
       font-style: normal;
     }
 
-    @font-face {
-      font-family: 'Pretendard';
-      src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
-      font-weight: 900;
-      font-style: normal;
-    }
-
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background-image: url('background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 100vh;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
       font-family: 'Pretendard', sans-serif;
+    }
+
+    .bg-wrap {
+      position: relative;
+      width: 100%;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
+    }
+
+    .bg-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 105%;
+      max-height: 110%;
+      transform: translate(-50%, -50%);
+      object-fit: contain;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
     }
 
     .box {
-      background-color: rgba(255, 255, 255, 1);
-      padding: 40px 60px; /* 상하 40, 좌우 60 */
-      padding-top: 100px;
-      border-radius: 0;
-      max-width: 80%;
-      max-height: 90vh; /* 화면 높이의 90%까지만 사용 */
-      overflow-y: auto; /* 넘치면 스크롤 */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      text-align: justify; /* 양쪽 정렬 */
+      background: rgba(255,255,255,0.97);
+      padding: 40px 60px;
+      padding-top: 300px;
+      padding-bottom:300px;
+      max-width: 300px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-align: justify;
+      border-radius: 0px;
     }
 
     .box h1 {
@@ -54,6 +77,7 @@
 
     .box h1.bold {
       font-weight: 900;
+      text-align: center;
     }
 
     .underline {
@@ -62,7 +86,7 @@
 
     @media (max-width: 768px) {
       .box {
-        padding: 40px 30px;
+        padding: 40px 20px;
         max-height: 85vh;
       }
 
@@ -73,46 +97,51 @@
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1 class="bold" style="text-align: center;">수상한 종말에 관한 시선</h1>
-    <h1 style="text-align: center;">Every Single Moment of the Millenium</h1>
-    <h1><br /></h1>
-    <h1 style="text-align: center;">공사 글 성인가 밴드 커뮤니티</h1>
-    <h1 style="text-align: center;">소년소녀 닷새 사월 이십육 일</h1>
-    <h1><br /></h1>
-    <h1><br /></h1>
-    <h1>
-      교실의 복판에 서서 우리들의 P 양은 단언했다: 글쎄, 모르는 일이라고는 하지만...... 
-      <span class="underline">㈎우리는 이 순간을 위해 급조된 것일지도 모르지.</span>
-      피범벅의 손으로 땀을 닦아낸 얼굴이 체념과 희열 사이의 색채로 번들거렸다. 生은 본능의 선상에 있다지만, 이번에야말로 경우가 다르다. 경우가.
-    </h1>
-    <h1><br /></h1>
-    <h1>
-      그 어떤 기억도 없이 운명의 모든 획마다 아로새겨진 강렬한 생명 부지에 대한 열망. 타에 대한 맹목적 배척감.
-    </h1>
-    <h1><br /></h1>
-    <h1>
-      어느 날 눈을 떠 보니 처음 보는 천장이었다. 아니, 사실 이건 거짓말이지만. 고교 입학 후 2 년은 족히 보았던 천장이긴 했다. 이 순간 전혀 짐작치 못한 랜드스케이프라는 것이 관건이다. 어딘가 을씨년스러운 교실. 얼마나 엎드려 자고 있던 건지 뻐근한 목과 어깨. 계시처럼 꽂히는 직감. 살아남아야 한다. 내가 무엇으로 이루어졌는지조차 모르겠지만, 이곳은 천국이 아니며, 
-      (이 단락에서 P 양은 창밖으로 뛰어내리고자 결심했다고 했다. 창을 열자마자 마주한 반타 블랙의 창외. 송름한 직감이 등골을 끼친다. 상필 죽을 것이다. 영혼마저도 어떠한 흔적 없이, 갈갈이 찢길 것이다. 그리고 그녀는 창을 걸어 잠갔다.) 내가 알던 교실은 더더욱 아닐 것이다. 
-      <span class="underline">㉠나를</span> 제외하고는 모두가 하교한 하년하일의 3 학년 2 반. 몇십 분의 배회 후 당도한 강당에서 나는 <span class="underline">㉡우리</span>를 만난다.
-    </h1>
-    <h1><br /></h1>
-    <h1><span class="underline">㉡우리</span>란,</h1>
-    <h1>지구의 대한민국 미명 고등학교 3 학년 2 반 재학생이다.</h1>
-    <h1>기억하고 있는 것은 이름과 나이뿐, 생년월일의 숫자 하나 가족관계나 사소한 기억의 편린조차 없다.</h1>
-    <h1><br /></h1>
-    <h1>P 양이 말하는 <span class="underline">㈎이 순간</span>이란,</h1>
-    <h1>이 섬찟하리만큼 익숙하고 생경한 교내에서 서로를 마주한 지는 약 일주일(체감)이다.</h1>
-    <h1>시계도 거울도, 창문마저 없는 이곳에서 시간을 짐작하였으며……</h1>
-    <h1><br /></h1>
-    <h1><span class="underline">㉠나</span>는 <span class="underline">㉡우리</span> 중 한 명을 죽인 적이 있다.</h1>
-    <h1><br /></h1>
-    <h1>
-      그 어떤 감정적 충돌 없이, 무의식의 영역…… 아니 변명이다. 계산된 알고리즘의 합당한 추론 결과처럼 행한 일이다. 열차가 들어오고 있습니다 따윌 상냥하게 삼 개 국어로 읊어 주는 안내원마냥. P 양의 목을 조르고 있습니다. Your hands are bleeding due to her scratch. Pちゃんの息が薄くなっています。노련하게 손에 묻은 피를 훔치며 <span class="underline">㉠나</span>를 대신하여 죽은 그녀의 이마에 키스한다. 살아야만 한단 욕구만이 분명하다. 다른 건, 잘 모르겠어. 나를 이루는 건 폐와 심장, 그뿐인 것 같아.
-    </h1>
-    <h1><br></h1>
-    <h1><br></h1>
-    <h1><br></h1>
+  <div class="bg-wrap">
+    <img src="background.png" alt="배경 이미지" class="bg-img" />
+    <div class="overlay">
+      <div class="box">
+        <h1 class="bold" style="text-align: center;">수상한 종말에 관한 시선</h1>
+        <h1 style="text-align: center;">Every Single Moment of the Millenium</h1>
+        <h1><br /></h1>
+        <h1 style="text-align: center;">공사 글 성인가 밴드 커뮤니티</h1>
+        <h1 style="text-align: center;">소년소녀 닷새 사월 이십육 일</h1>
+        <h1><br /></h1>
+        <h1><br /></h1>
+        <h1>
+          교실의 복판에 서서 우리들의 P 양은 단언했다: 글쎄, 모르는 일이라고는 하지만...... 
+          <span class="underline">㈎우리는 이 순간을 위해 급조된 것일지도 모르지.</span>
+          피범벅의 손으로 땀을 닦아낸 얼굴이 체념과 희열 사이의 색채로 번들거렸다. 生은 본능의 선상에 있다지만, 이번에야말로 경우가 다르다. 경우가.
+        </h1>
+        <h1><br /></h1>
+        <h1>
+          그 어떤 기억도 없이 운명의 모든 획마다 아로새겨진 강렬한 생명 부지에 대한 열망. 타에 대한 맹목적 배척감.
+        </h1>
+        <h1><br /></h1>
+        <h1>
+          어느 날 눈을 떠 보니 처음 보는 천장이었다. 아니, 사실 이건 거짓말이지만. 고교 입학 후 2 년은 족히 보았던 천장이긴 했다. 이 순간 전혀 짐작치 못한 랜드스케이프라는 것이 관건이다. 어딘가 을씨년스러운 교실. 얼마나 엎드려 자고 있던 건지 뻐근한 목과 어깨. 계시처럼 꽂히는 직감. 살아남아야 한다. 내가 무엇으로 이루어졌는지조차 모르겠지만, 이곳은 천국이 아니며, 
+          (이 단락에서 P 양은 창밖으로 뛰어내리고자 결심했다고 했다. 창을 열자마자 마주한 반타 블랙의 창외. 송름한 직감이 등골을 끼친다. 상필 죽을 것이다. 영혼마저도 어떠한 흔적 없이, 갈갈이 찢길 것이다. 그리고 그녀는 창을 걸어 잠갔다.) 내가 알던 교실은 더더욱 아닐 것이다. 
+          <span class="underline">㉠나를</span> 제외하고는 모두가 하교한 하년하일의 3 학년 2 반. 몇십 분의 배회 후 당도한 강당에서 나는 <span class="underline">㉡우리</span>를 만난다.
+        </h1>
+        <h1><br /></h1>
+        <h1><span class="underline">㉡우리</span>란,</h1>
+        <h1>지구의 대한민국 미명 고등학교 3 학년 2 반 재학생이다.</h1>
+        <h1>기억하고 있는 것은 이름과 나이뿐, 생년월일의 숫자 하나 가족관계나 사소한 기억의 편린조차 없다.</h1>
+        <h1><br /></h1>
+        <h1>P 양이 말하는 <span class="underline">㈎이 순간</span>이란,</h1>
+        <h1>이 섬찟하리만큼 익숙하고 생경한 교내에서 서로를 마주한 지는 약 일주일(체감)이다.</h1>
+        <h1>시계도 거울도, 창문마저 없는 이곳에서 시간을 짐작하였으며……</h1>
+        <h1><br /></h1>
+        <h1><span class="underline">㉠나</span>는 <span class="underline">㉡우리</span> 중 한 명을 죽인 적이 있다.</h1>
+        <h1><br /></h1>
+        <h1>
+          그 어떤 감정적 충돌 없이, 무의식의 영역…… 아니 변명이다. 계산된 알고리즘의 합당한 추론 결과처럼 행한 일이다. 열차가 들어오고 있습니다 따윌 상냥하게 삼 개 국어로 읊어 주는 안내원마냥. P 양의 목을 조르고 있습니다. Your hands are bleeding due to her scratch. Pちゃんの息が薄くなっています。노련하게 손에 묻은 피를 훔치며 <span class="underline">㉠나</span>를 대신하여 죽은 그녀의 이마에 키스한다. 살아야만 한단 욕구만이 분명하다. 다른 건, 잘 모르겠어. 나를 이루는 건 폐와 심장, 그뿐인 것 같아.
+        </h1>
+        <h1><br></h1>
+        <h1><br></h1>
+        <h1><br></h1>
+      </div>
+    </div>
   </div>
 </body>
 </html>
