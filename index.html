@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>수상한 종말에 관한 시선</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <style>
     @font-face {
       font-family: 'Pretendard-Regular';
@@ -41,7 +47,7 @@
       padding: 5px 10px;
       outline: none;
       color: white;
-      font-family: 'Pretendard-Regular', sans-serif;
+      font-family: 'Bebas Neue', sans-serif; /* ✅ 폰트 변경 */
       width: 170px;
       text-align: center;
     }
@@ -49,7 +55,8 @@
     ::placeholder {
       color: #f26bce;
       opacity: 0.7;
-      font-weight: 900; /* ✅ placeholder 글씨 두껍게! */
+      font-weight: 900;
+      font-family: 'Bebas Neue', sans-serif; /* ✅ placeholder도 동일 폰트 */
     }
 
     .button {
@@ -58,10 +65,10 @@
       border-radius: 0;
       background-color: #f26bce94;
       color: white;
-      font-size: 10px;
+      font-size: 14px;
       font-weight: bold;
       cursor: pointer;
-      font-family: 'Pretendard-Regular', sans-serif;
+      font-family: 'Bebas Neue', sans-serif; /* ✅ 버튼도 동일 폰트 */
       border: none;
       display: flex;
       align-items: center;
@@ -91,7 +98,7 @@
 <body>
   <div class="input-line">
     <input type="text" id="pageInput" placeholder="Do I have a choice?">
-    <button class="button" onclick="goToPage()">no</button>
+    <button class="button" onclick="goToPage()">NO</button>
   </div>
 
   <script>
@@ -102,7 +109,7 @@
       } else if (input == 'world'){
         window.location.href = 'world.html';
       } else {
-        alert('올바른 페이지 이름을 입력해주세요.');
+        alert('Please enter the correct page name.');
       }
     }
   </script>
